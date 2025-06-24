@@ -1,6 +1,3 @@
-<?php
-$kurals = json_decode(file_get_contents('kurals.json'), true);
-?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,26 +9,25 @@ $kurals = json_decode(file_get_contents('kurals.json'), true);
     <div class="container">
         <h2 class="text-center mb-4">📜 திருக்குறள்</h2>
         <div class="accordion" id="kuralAccordion">
-            <?php foreach ($kurals as $index => $kural): ?>
+       
                 <div class="accordion-item">
-                    <h2 class="accordion-header" id="heading<?= $index ?>">
-                        <button class="accordion-button <?= $index !== 0 ? 'collapsed' : '' ?>" type="button"
+                    <h2 class="accordion-header" >
+                        <button type="button"
                                 data-bs-toggle="collapse"
                                 data-bs-target="#collapse<?= $index ?>"
-                                aria-expanded="<?= $index === 0 ? 'true' : 'false' ?>"
+                                aria-expanded=""
                                 aria-controls="collapse<?= $index ?>">
-                            குறள் <?= $kural['Number'] ?>: <?= htmlspecialchars($kural['Line1']) ?>
+                            குறள்
                         </button>
                     </h2>
-                    <div id="collapse<?= $index ?>" class="accordion-collapse collapse <?= $index === 0 ? 'show' : '' ?>"
-                         aria-labelledby="heading<?= $index ?>" data-bs-parent="#kuralAccordion">
+                    <div data-bs-parent="#kuralAccordion">
                         <div class="accordion-body">
-                            <p><strong>குறள்:</strong><br><?= htmlspecialchars($kural['Line1']) ?><br><?= htmlspecialchars($kural['Line2']) ?></p>
-                            <p><strong>பொருள்:</strong><br><?= htmlspecialchars($kural['mv']) ?></p>
+                            <p><strong>குறள்:</strong><br><br></p>
+                            <p><strong>பொருள்:</strong><br></p>
                         </div>
                     </div>
                 </div>
-            <?php endforeach; ?>
+   
         </div>
     </div>
 
